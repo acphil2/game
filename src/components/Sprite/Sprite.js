@@ -10,6 +10,7 @@ const Sprite = ({ image, data, position }) => {
                 left: position.x,
     			height: `${h}px`,
     			width: `${w}px`,
+                marginTop: '-50px',
                 backgroundImage: `url(${image})`,
     			backgroundRepeat: 'no-repeat',
 				backgroundPosition: `-${x}px -${y}px`
