@@ -3,6 +3,8 @@
 	width: 600px;
 	height: 600px;
 	background-image: url("./images/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
 	border: 1px solid black;
 	border-radius: 20px;
 	margin: 0.5rem auto;

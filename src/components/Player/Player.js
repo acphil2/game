@@ -5,7 +5,7 @@ import useWalk from './../../hooks/UseWalk/use-walk.js';
 
 
 const Player = () => {
-	const { dir, step, walk, position } = useWalk(2);
+	const { dir, step, walk, positionX, positionY } = useWalk(2);
 	const data = {
     	h: 50,
         w: 25
@@ -21,7 +21,8 @@ const Player = () => {
     		data={data} 
     		step={step} 
     		dir={dir}
-    		position={position}
+    		positionX={positionX}
+            positionY={positionY}
     	/>
     );
 }
