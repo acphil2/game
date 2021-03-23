@@ -5,15 +5,16 @@ import useWalk from './../../hooks/UseWalk/use-walk.js';
 
 
 const Player = () => {
-	const { dir, step, walk, positionX, positionY } = useWalk(2);
+	const { dir, step, walk, position } = useWalk(2);
 	const data = {
     	h: 50,
         w: 25
     };
 
+    
     useKeyPress((e) => {
     	walk(e.key.replace('Arrow', '').toLowerCase());
-    	e.preventDefault();
+        e.preventDefault();
     });
 
     return( 
@@ -21,8 +22,7 @@ const Player = () => {
     		data={data} 
     		step={step} 
     		dir={dir}
-    		positionX={positionX}
-            positionY={positionY}
+    		position={position}
     	/>
     );
 }

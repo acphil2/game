@@ -3,8 +3,7 @@ import Sprite from '../Sprite/Sprite';
 
 const Actor = ({ 
     data, 
-    positionX = { x: 0 },
-    positionY = { y: 0 },
+    position = { x: 0, y: 0  },
     step = 0, 
     dir = 0
     }) => {
@@ -14,8 +13,7 @@ const Actor = ({
 	return (
 		<Sprite 
             image={'Sprites/spritesheet.png'}
-            positionX={positionX}
-            positionY={positionY}
+            position={position}
             data={{
                 x: step * w,
                 y: dir * h,
