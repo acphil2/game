@@ -4,10 +4,10 @@ const useWalk = (maxSteps) => {
     /* X and Y position starts on top floor*/
     const [position, setPosition] = useState({x: 1, y: 150});
     
-    /* Character direction: initial state facing right*/
+    /* Character Direction Facing*/
     const [dir, setDir] = useState(2);
 
-    /* Two Steps each for Up, Down, Left, Right: 0, 1*/
+    /* Step of the Animation */
     const [step, setStep] = useState(0);
     const directions = {
         down: 0,
@@ -34,10 +34,20 @@ const useWalk = (maxSteps) => {
     }
 
     function move(dir) {
-        setPosition((prev) => ({
-            x: prev.x + modifier[dir].x,
-            y: prev.y + modifier[dir].y
-        }));
+        if(((position.x + modifier[dir].x > 0) 
+            && (position.y+ modifier[dir].y === 150) 
+            && (position.x + modifier[dir].x < 575))
+            ||
+            ((position.x + modifier[dir].x > 415) 
+            && (position.x + modifier[dir].x < 460)
+            && (position.y+ modifier[dir].y >= 150)
+            && (position.y+ modifier[dir].y < 300))
+            ){
+            setPosition((prev) => ({
+                x: prev.x + modifier[dir].x,
+                y: prev.y + modifier[dir].y
+            }));
+        }
     }
 
     return {
