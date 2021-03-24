@@ -16,7 +16,7 @@ const useWalk = (maxSteps) => {
         up: 3
     };
 
-    const stepSize = 8;
+    const stepSize = 10;
 
     const modifier = {
         down: { x: 0, y: stepSize },
@@ -41,12 +41,24 @@ const useWalk = (maxSteps) => {
             ((position.x + modifier[dir].x > 415) 
             && (position.x + modifier[dir].x < 460)
             && (position.y+ modifier[dir].y >= 150)
-            && (position.y+ modifier[dir].y < 300))
-            ){
+            && (position.y+ modifier[dir].y <= 300))
+            ||
+            ((position.x + modifier[dir].x > 0) 
+            && (position.y+ modifier[dir].y === 300)
+            && (position.x + modifier[dir].x < 575))
+        ){
             setPosition((prev) => ({
                 x: prev.x + modifier[dir].x,
                 y: prev.y + modifier[dir].y
             }));
+        } 
+        else if(((position.x === 1 && position.y === 300) 
+        || (position.x >= 1 && position.y >= 301 && position.y < 450)) && ((directions[dir]===0) || (directions[dir]===2))){
+            setDir(2);
+            setPosition((prev) => ({
+                x: prev.x + stepSize,
+                y: prev.y + stepSize
+            })) 
         }
     }
 
