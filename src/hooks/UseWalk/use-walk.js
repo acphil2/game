@@ -46,6 +46,19 @@ const useWalk = (maxSteps) => {
             ((position.x + modifier[dir].x > 0) 
             && (position.y+ modifier[dir].y === 300)
             && (position.x + modifier[dir].x < 575))
+            ||
+            ((position.x + modifier[dir].x > 150) 
+            && (position.y+ modifier[dir].y === 450)
+            && (position.x + modifier[dir].x < 575))
+            ||
+            ((position.x + modifier[dir].x > 515) 
+            && (position.x + modifier[dir].x < 560)
+            && (position.y+ modifier[dir].y >= 450)
+            && (position.y+ modifier[dir].y <= 600))
+            ||
+            ((position.x + modifier[dir].x > 0) 
+            && (position.y+ modifier[dir].y === 600)
+            && (position.x + modifier[dir].x < 575))
         ){
             setPosition((prev) => ({
                 x: prev.x + modifier[dir].x,
@@ -53,11 +66,18 @@ const useWalk = (maxSteps) => {
             }));
         } 
         else if(((position.x === 1 && position.y === 300) 
-        || (position.x >= 1 && position.y >= 301 && position.y < 450)) && ((directions[dir]===0) || (directions[dir]===2))){
+        || (position.x >= 1 && position.y >= 301 && position.y < 450)) && ((directions[dir]===0))){
             setDir(2);
             setPosition((prev) => ({
                 x: prev.x + stepSize,
                 y: prev.y + stepSize
+            })) 
+        }
+        else if(position.x <= 151 && position.y <= 450 && position.y > 300 && directions[dir]===3){
+            setDir(1);
+            setPosition((prev) => ({
+                x: prev.x - stepSize,
+                y: prev.y - stepSize
             })) 
         }
     }
