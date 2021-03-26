@@ -10,7 +10,6 @@ const Player = () => {
     	h: 50,
         w: 25
     };
-
     
     useKeyPress((e) => {
     	walk(e.key.replace('Arrow', '').toLowerCase());

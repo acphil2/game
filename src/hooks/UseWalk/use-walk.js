@@ -7,6 +7,9 @@ const useWalk = (maxSteps) => {
     /* Character Direction Facing*/
     const [dir, setDir] = useState(2);
 
+    const [stairRight, setStairRight] = useState(false);
+    const [stairLeft, setStairLeft] = useState(false);
+
     /* Step of the Animation */
     const [step, setStep] = useState(0);
     const directions = {
@@ -27,8 +30,20 @@ const useWalk = (maxSteps) => {
 
     function walk(dir) {
         setDir(prev => {
-            if(directions[dir] === prev) move(dir);
-            return directions[dir];
+            if (stairRight === true){
+                setDir(2);
+                move(dir);
+                return directions[dir]; 
+            }
+            else if (stairLeft === true){
+                setDir(1);
+                move(dir);
+                return directions[dir]; 
+            }
+            else {
+                if(directions[dir] === prev) move(dir);
+                return directions[dir];
+            }
         });
         setStep((prev) => (prev < maxSteps -1 ? prev + 1 : 0));
     }
@@ -60,6 +75,8 @@ const useWalk = (maxSteps) => {
             && (position.y+ modifier[dir].y === 600)
             && (position.x + modifier[dir].x < 575))
         ){
+            setStairRight(false);
+            setStairLeft(false);
             setPosition((prev) => ({
                 x: prev.x + modifier[dir].x,
                 y: prev.y + modifier[dir].y
@@ -67,14 +84,16 @@ const useWalk = (maxSteps) => {
         } 
         else if(((position.x === 1 && position.y === 300) 
         || (position.x >= 1 && position.y >= 301 && position.y < 450)) && ((directions[dir]===0))){
-            setDir(2);
+            setStairRight(true);
+            setStairLeft(false);
             setPosition((prev) => ({
                 x: prev.x + stepSize,
                 y: prev.y + stepSize
             })) 
         }
         else if(position.x <= 151 && position.y <= 450 && position.y > 300 && directions[dir]===3){
-            setDir(1);
+            setStairLeft(true);
+            setStairRight(false);
             setPosition((prev) => ({
                 x: prev.x - stepSize,
                 y: prev.y - stepSize
