@@ -8,20 +8,20 @@ const Actor = ({
     dir = 0
     }) => {
     
-	const{ h, w } = data; 
+    const{ h, w } = data; 
     
-	return (
-		<Sprite 
+    return (
+        <Sprite 
             image={'Sprites/spritesheet.png'}
             position={position}
             data={{
-                x: step * w,
-                y: dir * h,
+                x: step * 25,
+                y: dir * 50,
                 w,
                 h
             }}
         />
-	);
+    );
 }
 
 export default Actor;

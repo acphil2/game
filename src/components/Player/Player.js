@@ -7,8 +7,8 @@ import useWalk from './../../hooks/UseWalk/use-walk.js';
 const Player = () => {
 	const { dir, step, walk, position } = useWalk(2);
 	const data = {
-    	h: 50,
-        w: 25
+    	h: 8.33,
+        w: 4.16666
     };
     
     useKeyPress((e) => {

@@ -1,0 +1,14 @@
+.candle-sprite {
+    position: absolute;
+    width: 4.33%;
+    height: 8.33%;
+    background-image: url('../../images/candlesprite.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: flicker .5s infinite;
+}
+
+.candle-flicker {
+	background-position: 50% 0;
+}
+
