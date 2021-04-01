@@ -83,7 +83,7 @@ const useWalk = (maxSteps) => {
             }));
         } 
         else if(((position.x === 0 && position.y === 300) 
-        || (position.x >= 0 && position.y >= 300 && position.y < 450)) && ((directions[dir]===0))){
+        || (position.x >= 0 && position.x <= 150 && position.y >= 300 && position.y < 450)) && ((directions[dir]===0))){
             setStairRight(true);
             setStairLeft(false);
             setPosition((prev) => ({
