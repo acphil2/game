@@ -2,21 +2,22 @@ import React from 'react';
 
 const Sprite = ({ image, data, position }) => {
     const { y, x, h, w } = data;
-  	return (
-    	<div 
-    		style={{
+    return (
+        <div 
+            style={{
                 position: 'absolute',
                 top: position.y,
                 left: position.x,
-    			height: `${h}%`,
-    			width: `${w}%`,
-                marginTop: `-${h}%`,
+                height: `${h}px`,
+                width: `${w}px`,
+                marginTop: `-${h}px`,
                 backgroundImage: `url(${image})`,
-    			backgroundRepeat: 'no-repeat',
-				backgroundPosition: `-${x}px -${y}px`
-    		}}>
-    	</div>
-  	);
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: `-${x}px -${y}px`,
+                zIndex: '5'
+            }}>
+        </div>
+    );
 }
  
 export default Sprite;

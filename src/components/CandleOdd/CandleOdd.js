@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import './Candle.css';
+import './CandleOdd.css';
 
-const Candle = ( props ) => {
+const CandleOdd = ( props ) => {
     const [toggleClass, setToggleClass] = useState(true);
 
     useEffect(() => {
@@ -12,12 +12,11 @@ const Candle = ( props ) => {
     }, [toggleClass]);
 
     return(
-    	<div className={`candle-sprite ${toggleClass ? 'candle-flicker' : null}`}
+        <div className={`candle-sprite ${toggleClass ? 'candle-flicker' : null}`}
         style={props.style}
         >
-    	</div>
+        </div>
     );
 }
 
-export default Candle;
-
+export default CandleOdd;

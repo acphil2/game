@@ -15,8 +15,8 @@ const Actor = ({
             image={'Sprites/spritesheet.png'}
             position={position}
             data={{
-                x: step * 25,
-                y: dir * 50,
+                x: step * w,
+                y: dir * h,
                 w,
                 h
             }}
