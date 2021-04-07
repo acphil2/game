@@ -1,16 +1,11 @@
 import { useState } from 'react';
 
 const useWalk = (maxSteps) => {
-    /* X and Y position starts on top floor*/
-    const [position, setPosition] = useState({x: 0, y: 150});
-    
-    /* Character Direction Facing*/
+    const [positionX, setPositionX] = useState({x: 155});
+    const [positionY, setPositionY] = useState({y: 150});
     const [dir, setDir] = useState(2);
-
     const [stairRight, setStairRight] = useState(false);
     const [stairLeft, setStairLeft] = useState(false);
-
-    /* Step of the Animation */
     const [step, setStep] = useState(0);
     const directions = {
         down: 0,
@@ -27,6 +22,150 @@ const useWalk = (maxSteps) => {
         right: { x: stepSize, y: 0 },
         up: { x: 0, y: -stepSize }
     };
+
+    function move(dir) {
+        
+        //THIS CODE IS AFFECTING LOWER CODE
+        if(dir==='right'){
+            if(
+                //Floor 1
+           ((positionY.y === 150 ||
+            positionY.y === 145)&&
+            positionX.x + modifier[dir].x < 575) 
+           ||
+                //Floor 2
+           ((positionY.y === 300 ||
+            positionY.y === 295)&&
+            positionX.x + modifier[dir].x < 575)
+           ||
+                //Floor 3
+           ((positionY.y === 445 ||
+            positionY.y === 450) &&
+            positionX.x + modifier[dir].x <= 575)
+           ||
+                // Floor 4
+           ((positionY.y === 595||
+            positionY.y === 600) &&
+            positionX.x + modifier[dir].x < 575))
+    
+            {   
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionX((prev) => ({
+                    x: prev.x + modifier[dir].x
+                }));
+            }            
+        } 
+        if(dir==='left'){
+            if(
+                //Floor 1
+           ((positionY.y === 150 ||
+            positionY.y === 145)&&
+            positionX.x + modifier[dir].x > 0) 
+           ||
+                //Floor 2
+           ((positionY.y === 300 ||
+            positionY.y === 295)&&
+            positionX.x + modifier[dir].x > -5)
+           ||
+                //Floor 3
+           ((positionY.y === 445 ||
+            positionY.y === 450) &&
+            positionX.x + modifier[dir].x > 145 )
+           ||
+                // Floor 4
+           ((positionY.y === 595||
+            positionY.y === 600) &&
+            positionX.x + modifier[dir].x > 0))
+    
+            {   
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionX((prev) => ({
+                    x: prev.x + modifier[dir].x
+                }));
+            }            
+        }
+        else if (dir==='up') {
+            if(positionX.x >= 510 && 
+                positionX.x <= 555 && 
+                positionY.y > 450){
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionY((prev) => ({
+                    y: prev.y + modifier[dir].y
+                }));
+            } else if(positionX.x >= 410 && 
+                positionX.x <= 455 && 
+                positionY.y <= 300 &&
+                positionY.y > 150
+                ){
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionY((prev) => ({
+                    y: prev.y + modifier[dir].y
+                }));
+            } else if ((positionX.x===150 && positionY.y===450)||
+                (positionX.x===145 && positionY.y===450)||
+                (positionX.x===150 && positionY.y===445) ||
+                (positionX.x===145 && positionY.y===445) ||
+                (positionX.x===155 && positionY.y===445) ||
+                (positionX.x===155 && positionY.y===450) ||
+                (positionX.x <= 145 && positionY.y <= 440 && positionY.y >= 305)
+                ){  
+                    setStairRight(false);
+                    setStairLeft(true);
+                    setPositionY((prev) => ({
+                        y: prev.y + modifier['up'].y
+                    }));
+                    setPositionX((prev) => ({
+                        x: prev.x + modifier['left'].x
+                    }));
+                }
+            } 
+
+        else if (dir==='down') {
+            if(positionX.x >= 510 && 
+                positionX.x <= 555 && 
+                positionY.y >= 445 && 
+                positionY.y < 595 
+                ){
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionY((prev) => ({
+                    y: prev.y + modifier[dir].y
+                }));
+            }
+            else if(positionX.x >= 410 && 
+                positionX.x <= 455 && 
+                positionY.y >= 145 && 
+                positionY.y < 295 
+                ){
+                setStairRight(false);
+                setStairLeft(false);
+                setPositionY((prev) => ({
+                    y: prev.y + modifier[dir].y
+                }));
+            } else if(
+                (positionX.x === 0 && positionY.y === 295)||
+                (positionX.x === 0 && positionY.y === 300)||
+                (positionX.x === 5 && positionY.y === 300)||
+                (positionX.x === 5 && positionY.y === 295)||
+                (positionX.x === -5 && positionY.y === 300)||
+                (positionX.x === -5 && positionY.y === 295)||
+                (positionX.x >= 5 && positionY.y >= 305 && positionY.y <= 440)
+                ){
+                setStairRight(true);
+                setStairLeft(false);
+                setPositionY((prev) => ({
+                    y: prev.y + modifier['down'].y
+                }));
+                setPositionX((prev) => ({
+                    x: prev.x + modifier['right'].x
+                }));
+            }
+        }
+    }
 
     function walk(dir) {
         setDir(prev => {
@@ -48,64 +187,13 @@ const useWalk = (maxSteps) => {
         setStep((prev) => (prev < maxSteps -1 ? prev + 1 : 0));
     }
 
-    function move(dir) {
-        if(((position.x + modifier[dir].x >= 0) 
-            && (position.y+ modifier[dir].y === 150) 
-            && (position.x + modifier[dir].x <= 575))
-            ||
-            ((position.x + modifier[dir].x >= 415) 
-            && (position.x + modifier[dir].x <= 460)
-            && (position.y+ modifier[dir].y >= 150)
-            && (position.y+ modifier[dir].y <= 300))
-            ||
-            ((position.x + modifier[dir].x >= 0) 
-            && (position.y+ modifier[dir].y === 300)
-            && (position.x + modifier[dir].x <= 575))
-            ||
-            ((position.x + modifier[dir].x >= 150) 
-            && (position.y+ modifier[dir].y === 450)
-            && (position.x + modifier[dir].x <= 575))
-            ||
-            ((position.x + modifier[dir].x >= 515) 
-            && (position.x + modifier[dir].x <= 560)
-            && (position.y+ modifier[dir].y >= 450)
-            && (position.y+ modifier[dir].y <= 600))
-            ||
-            ((position.x + modifier[dir].x >= 0) 
-            && (position.y+ modifier[dir].y === 600)
-            && (position.x + modifier[dir].x <= 575))
-        ){
-            setStairRight(false);
-            setStairLeft(false);
-            setPosition((prev) => ({
-                x: prev.x + modifier[dir].x,
-                y: prev.y + modifier[dir].y
-            }));
-        } 
-        else if(((position.x === 0 && position.y === 300) 
-        || (position.x >= 0 && position.x <= 150 && position.y >= 300 && position.y < 450)) && ((directions[dir]===0))){
-            setStairRight(true);
-            setStairLeft(false);
-            setPosition((prev) => ({
-                x: prev.x + stepSize,
-                y: prev.y + stepSize
-            })) 
-        }
-        else if(position.x <= 150 && position.y <= 450 && position.y > 300 && directions[dir]===3){
-            setStairLeft(true);
-            setStairRight(false);
-            setPosition((prev) => ({
-                x: prev.x - stepSize,
-                y: prev.y - stepSize
-            })) 
-        }
-    }
 
     return {
         walk, 
         dir, 
         step,
-        position
+        positionX,
+        positionY
     };
 }
 
