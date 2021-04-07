@@ -111,6 +111,7 @@ const useWalk = (maxSteps) => {
                 (positionX.x===145 && positionY.y===445) ||
                 (positionX.x===155 && positionY.y===445) ||
                 (positionX.x===155 && positionY.y===450) ||
+                (positionX.x===140 && positionY.y===445) ||
                 (positionX.x <= 145 && positionY.y <= 440 && positionY.y >= 305)
                 ){  
                     setStairRight(false);
