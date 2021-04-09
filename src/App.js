@@ -5,10 +5,10 @@ import CandleEven from './components/CandleEven/CandleEven';
 import './App.css';
 
 export default function App(props) {
-   return (
-      	<div className="game">
+      return (
+      	<div className='game'>
             	{/* directions, button */}
-                  <Player/>
+                  <Player  />
                   <CandleOdd id='candle1' style= {{
                   	top: '25%',
                   	left: '40%'
@@ -30,7 +30,7 @@ export default function App(props) {
                   	top: '100%',
                   	left: '50%'
                   }}/>
-                  <CandleEven id='candle6' className='candle-flicker'
+                  <CandleEven id='candle6'
                         style= {{
                   	top: '100%',
                   	left: '78%'

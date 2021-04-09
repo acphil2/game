@@ -20,3 +20,4 @@ const CandleOdd = ( props ) => {
 }
 
 export default CandleOdd;
+
