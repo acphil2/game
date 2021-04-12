@@ -12,3 +12,7 @@
 .candle-flicker {
 	background-position: 0 0;
 }
+
+.candle-out {
+	background-position: 100% 0;
+}

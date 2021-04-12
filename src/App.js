@@ -6,46 +6,115 @@ import useWalk from './hooks/UseWalk/use-walk.js';
 import './App.css';
 
 export default function App(props) {
+      //Character Movement and Position
       const { dir, step, walk, positionX, positionY } = useWalk(2);
-      const [toggleClassOdd, setToggleClassOdd] = useState(true);
-      const [toggleClassEven, setToggleClassEven] = useState(true);
 
-      //Odd Candles
-      useEffect(() => {
-            const interval = setInterval(() => {
-                  setToggleClassOdd(toggleClassOdd => toggleClassOdd===false);
-            }, 500);
-            return () => clearInterval(interval);
-      }, [toggleClassOdd]);
+      //Candle Flickering States
+      const [toggleClass1, setToggleClass1] = useState(true);   
+      const [toggleClass2, setToggleClass2] = useState(true);   
+      const [toggleClass3, setToggleClass3] = useState(true);   
+      const [toggleClass4, setToggleClass4] = useState(true);   
+      const [toggleClass5, setToggleClass5] = useState(true);   
+      const [toggleClass6, setToggleClass6] = useState(true);    
 
-      //Even Candles
+      //Candle Out States
+      const [candleOut1, setCandleOut1] = useState(false);   
+      const [candleOut2, setCandleOut2] = useState(false);
+      const [candleOut3, setCandleOut3] = useState(false);
+      const [candleOut4, setCandleOut4] = useState(false);
+      const [candleOut5, setCandleOut5] = useState(false);
+      const [candleOut6, setCandleOut6] = useState(false);
+
+
+      //Candle1
       useEffect(() => {
-            const interval = setInterval(() => {
-                  setToggleClassEven(toggleClassEven => toggleClassEven===false);
-            }, 250);
-            return () => clearInterval(interval);
-      }, [toggleClassEven]);
+            if(candleOut1===false){
+                  const interval = setInterval(() => {
+                        setToggleClass1(toggleClass1 => toggleClass1===false);
+                  }, 500);                  
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut1]);
+
+      //Candle 2
+      useEffect(() => {
+            if(candleOut2===false){
+                  const interval = setInterval(() => {
+                        setToggleClass2(toggleClass2 => toggleClass2===false);
+                  }, 250);
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut2]);
+
+      //Candle 3 
+      useEffect(() => {
+            if(candleOut3===false){
+                  const interval = setInterval(() => {
+                        setToggleClass3(toggleClass3 => toggleClass3===false);
+                  }, 500);
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut3]);
+
+      //Candle 4 
+      useEffect(() => {
+            if(candleOut4===false){
+                  const interval = setInterval(() => {
+                        setToggleClass4(toggleClass4 => toggleClass4===false);
+                  }, 250);
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut4]);
+
+      //Candle 5 
+      useEffect(() => {
+            if(candleOut5===false){
+                  const interval = setInterval(() => {
+                        setToggleClass5(toggleClass5 => toggleClass5===false);
+                  }, 250);
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut5]);
+
+      //Candle 6 
+      useEffect(() => {
+            if(candleOut6===false){
+                  const interval = setInterval(() => {
+                        setToggleClass6(toggleClass6 => toggleClass6===false);
+                  }, 500);
+                  return () => clearInterval(interval);
+            }
+      }, [candleOut6]);
 
       useKeyPress((e) => {
+            //Movement
             if(e.key==='ArrowRight' || 
             e.key==='ArrowLeft' || 
             e.key==='ArrowDown' ||
             e.key==='ArrowUp') {
                   walk(e.key.replace('Arrow', '').toLowerCase());
             } 
+
+            //Spacebar
             else if(e.keyCode===32){
                   if((positionY.y===150||positionY.y===145)&&(positionX.x >= 210 && positionX.x <= 270)){
                         console.log('Candle 1 OUT');
+                        setCandleOut1(true);
                   } else if((positionY.y===300||positionY.y===295)&&(positionX.x >= 460 && positionX.x <= 520)){
                         console.log('Candle 2 OUT');
+                        setCandleOut2(true);
                   } else if((positionY.y===300||positionY.y===295)&&(positionX.x >= 90 && positionX.x <= 150)){
                         console.log('Candle 3 OUT');
+                        setCandleOut3(true);
                   } else if((positionY.y===450||positionY.y===445)&&(positionX.x >= 210 && positionX.x <= 270)){
                       console.log('Candle 4 OUT');
+                      setCandleOut4(true);
                   } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 440 && positionX.x <= 500)){
                       console.log('Candle 5 OUT');
+                      setCandleOut5(true);
                   } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 270 && positionX.x <= 330)){
                         console.log('Candle 6 OUT');
+                        setCandleOut6(true);
                   }
             }  
       });
@@ -60,50 +129,56 @@ export default function App(props) {
                         positionY={positionY} 
                   />
 
-                  <Candle id='candle1' 
-                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
+                  <Candle 
+                        id='candle1' 
+                        className={`candle-sprite ${toggleClass1 ? 'candle-flicker' : null} ${candleOut1 ? 'candle-out' : null}`}
                         style= {{
                   	top: '25%',
                   	left: '40%'
                   }}/>
 
-                  <Candle id='candle2' 
-                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
+                  <Candle 
+                        id='candle2' 
+                        className={`candle-sprite ${toggleClass2 ? 'candle-flicker' : null} ${candleOut2 ? 'candle-out' : null}`}
                         style= {{
                         	top: '50%',
                         	left: '82%'
                         }}
                   />
 
-                  <Candle id='candle3' 
-                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
+                  <Candle 
+                        id='candle3' 
+                        className={`candle-sprite ${toggleClass3 ? 'candle-flicker' : null} ${candleOut3 ? 'candle-out' : null}`}
                         style= {{
                   	     top: '50%',
                   	     left: '20%'
                         }}
                   />
 
-                  <Candle id='candle4' 
-                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
+                  <Candle 
+                        id='candle4' 
+                        className={`candle-sprite ${toggleClass4 ? 'candle-flicker' : null} ${candleOut4 ? 'candle-out' : null}`}
                         style= {{
                         	top: '75%',
                         	left: '40%'
                         }}
                   />
 
-                  <Candle id='candle5' 
-                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
-                        style= {{
-                  	     top: '100%',
-                  	     left: '50%'
-                        }}
-                  />
-
-                  <Candle id='candle6' 
-                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
+                  <Candle 
+                        id='candle5' 
+                        className={`candle-sprite ${toggleClass5 ? 'candle-flicker' : null} ${candleOut5 ? 'candle-out' : null}`}
                         style= {{
                   	     top: '100%',
                   	     left: '78%'
+                        }}
+                  />
+
+                  <Candle 
+                        id='candle6' 
+                        className={`candle-sprite ${toggleClass6 ? 'candle-flicker' : null} ${candleOut6 ? 'candle-out' : null}`}
+                        style= {{
+                             top: '100%',
+                             left: '50%'
                         }}
                   />
       	</div>
