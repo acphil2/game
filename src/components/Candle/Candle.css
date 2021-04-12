@@ -9,3 +9,6 @@
     z-index: 3;
 }
 
+.candle-flicker {
+	background-position: 0 0;
+}

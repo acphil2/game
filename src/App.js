@@ -1,13 +1,30 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Player from './components/Player/Player';
-import CandleOdd from './components/CandleOdd/CandleOdd';
-import CandleEven from './components/CandleEven/CandleEven';
+import Candle from './components/Candle/Candle';
 import useKeyPress from './hooks/UseKeyPress/use-key-press.js';
 import useWalk from './hooks/UseWalk/use-walk.js';
 import './App.css';
 
 export default function App(props) {
       const { dir, step, walk, positionX, positionY } = useWalk(2);
+      const [toggleClassOdd, setToggleClassOdd] = useState(true);
+      const [toggleClassEven, setToggleClassEven] = useState(true);
+
+      //Odd Candles
+      useEffect(() => {
+            const interval = setInterval(() => {
+                  setToggleClassOdd(toggleClassOdd => toggleClassOdd===false);
+            }, 500);
+            return () => clearInterval(interval);
+      }, [toggleClassOdd]);
+
+      //Even Candles
+      useEffect(() => {
+            const interval = setInterval(() => {
+                  setToggleClassEven(toggleClassEven => toggleClassEven===false);
+            }, 250);
+            return () => clearInterval(interval);
+      }, [toggleClassEven]);
 
       useKeyPress((e) => {
             if(e.key==='ArrowRight' || 
@@ -43,36 +60,51 @@ export default function App(props) {
                         positionY={positionY} 
                   />
 
-                  <CandleOdd id='candle1' style= {{
+                  <Candle id='candle1' 
+                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
+                        style= {{
                   	top: '25%',
                   	left: '40%'
                   }}/>
 
-                  <CandleEven id='candle2' style= {{
-                  	top: '50%',
-                  	left: '82%'
-                  }}/>
-
-                  <CandleOdd id='candle3' style= {{
-                  	top: '50%',
-                  	left: '20%'
-                  }}/>
-
-                  <CandleEven id='candle4' style= {{
-                  	top: '75%',
-                  	left: '40%'
-                  }}/>
-
-                  <CandleOdd id='candle5' style= {{
-                  	top: '100%',
-                  	left: '50%'
-                  }}/>
-
-                  <CandleEven id='candle6' className='candle-flicker'
+                  <Candle id='candle2' 
+                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
                         style= {{
-                  	top: '100%',
-                  	left: '78%'
-                  }}
+                        	top: '50%',
+                        	left: '82%'
+                        }}
+                  />
+
+                  <Candle id='candle3' 
+                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
+                        style= {{
+                  	     top: '50%',
+                  	     left: '20%'
+                        }}
+                  />
+
+                  <Candle id='candle4' 
+                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
+                        style= {{
+                        	top: '75%',
+                        	left: '40%'
+                        }}
+                  />
+
+                  <Candle id='candle5' 
+                        className={`candle-sprite ${toggleClassOdd ? 'candle-flicker' : null}`}
+                        style= {{
+                  	     top: '100%',
+                  	     left: '50%'
+                        }}
+                  />
+
+                  <Candle id='candle6' 
+                        className={`candle-sprite ${toggleClassEven ? 'candle-flicker' : null}`}
+                        style= {{
+                  	     top: '100%',
+                  	     left: '78%'
+                        }}
                   />
       	</div>
    	);
