@@ -25,6 +25,23 @@ export default function App(props) {
       const [candleOut5, setCandleOut5] = useState(false);
       const [candleOut6, setCandleOut6] = useState(false);
 
+      //Relight Trick Candle State (so it won't run more than once)
+      const [canRelight, setCanRelight] = useState(true);
+
+      //Trick Candles Function 
+      const relight = () => {
+            if(canRelight===true){
+                  if(candleOut1===true 
+                  && candleOut2===true 
+                  && candleOut3===true 
+                  && candleOut4===true){
+                        setCandleOut1(false);
+                        setCandleOut2(false);
+                        setCandleOut4(false);
+                        setCanRelight(false);
+                  }
+            }
+      }  
 
       //Candle1
       useEffect(() => {
@@ -107,11 +124,12 @@ export default function App(props) {
                         console.log('Candle 3 OUT');
                         setCandleOut3(true);
                   } else if((positionY.y===450||positionY.y===445)&&(positionX.x >= 210 && positionX.x <= 270)){
-                      console.log('Candle 4 OUT');
-                      setCandleOut4(true);
+                        console.log('Candle 4 OUT');
+                        setCandleOut4(true);
                   } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 440 && positionX.x <= 500)){
-                      console.log('Candle 5 OUT');
-                      setCandleOut5(true);
+                        console.log('Candle 5 OUT');
+                        setCandleOut5(true);
+                        relight();
                   } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 270 && positionX.x <= 330)){
                         console.log('Candle 6 OUT');
                         setCandleOut6(true);
