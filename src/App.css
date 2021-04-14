@@ -7,7 +7,16 @@
 	background-repeat: no-repeat;
 	border: 1px solid black;
 	border-radius: 30px;
-    overflow: hidden;
     position: relative;
-    margin-top: 20px;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+
+
+@media (max-width: 600px) { 
+	.game {
+		width: 320px;
+		height: 320px;
+	}
 }

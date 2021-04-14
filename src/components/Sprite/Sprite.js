@@ -6,11 +6,12 @@ const Sprite = ({ image, data, positionX, positionY }) => {
         <div 
             style={{
                 position: 'absolute',
-                top: positionY.y,
-                left: positionX.x,
+                top: `${positionY.y}%`,
+                left: `${positionX.x}%`,
                 height: `${h}px`,
                 width: `${w}px`,
                 marginTop: `-${h}px`,
+                marginRight: `${w}px`,
                 backgroundImage: `url(${image})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: `-${x}px -${y}px`,

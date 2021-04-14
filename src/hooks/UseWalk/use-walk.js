@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 const useWalk = (maxSteps) => {
-    const [positionX, setPositionX] = useState({ x: 100 });
-    const [positionY, setPositionY] = useState({ y: 150 });
+    const [positionX, setPositionX] = useState({ x: 25 });
+    const [positionY, setPositionY] = useState({ y: 25 });
     const [dir, setDir] = useState(2);
     const [stairRight, setStairRight] = useState(false);
     const [stairLeft, setStairLeft] = useState(false);
@@ -14,7 +14,7 @@ const useWalk = (maxSteps) => {
         up: 3
     };
 
-    const stepSize = 5;
+    const stepSize = 1;
 
     const modifier = {
         down: { x: 0, y: stepSize },
@@ -25,29 +25,23 @@ const useWalk = (maxSteps) => {
 
     function move(dir) {
         
-        //THIS CODE IS AFFECTING LOWER CODE
         if(dir==='right'){
             if(
                 //Floor 1
-           ((positionY.y === 150 ||
-            positionY.y === 145)&&
-            positionX.x + modifier[dir].x < 575) 
+           (positionY.y === 25 &&
+            positionX.x + modifier[dir].x < 98) 
            ||
                 //Floor 2
-           ((positionY.y === 300 ||
-            positionY.y === 295)&&
-            positionX.x + modifier[dir].x < 575)
+           (positionY.y === 50 &&
+            positionX.x + modifier[dir].x < 98)
            ||
                 //Floor 3
-           ((positionY.y === 445 ||
-            positionY.y === 450) &&
-            positionX.x + modifier[dir].x <= 575)
+           (positionY.y === 75 &&
+            positionX.x + modifier[dir].x < 98)
            ||
                 // Floor 4
-           ((positionY.y === 595||
-            positionY.y === 600) &&
-            positionX.x + modifier[dir].x < 575))
-    
+           (positionY.y === 100 &&
+            positionX.x + modifier[dir].x < 98))
             {   
                 setStairRight(false);
                 setStairLeft(false);
@@ -59,23 +53,19 @@ const useWalk = (maxSteps) => {
         if(dir==='left'){
             if(
                 //Floor 1
-           ((positionY.y === 150 ||
-            positionY.y === 145)&&
+           (positionY.y === 25 &&
             positionX.x + modifier[dir].x > 0) 
            ||
                 //Floor 2
-           ((positionY.y === 300 ||
-            positionY.y === 295)&&
-            positionX.x + modifier[dir].x > -5)
+           (positionY.y === 50 &&
+            positionX.x + modifier[dir].x > 0)
            ||
                 //Floor 3
-           ((positionY.y === 445 ||
-            positionY.y === 450) &&
-            positionX.x + modifier[dir].x > 145 )
+           (positionY.y === 75 &&
+            positionX.x + modifier[dir].x > 25 )
            ||
                 // Floor 4
-           ((positionY.y === 595||
-            positionY.y === 600) &&
+           (positionY.y === 100 &&
             positionX.x + modifier[dir].x > 0))
     
             {   
@@ -87,32 +77,25 @@ const useWalk = (maxSteps) => {
             }            
         }
         else if (dir==='up') {
-            if(positionX.x >= 510 && 
-                positionX.x <= 555 && 
-                positionY.y > 450){
+            if(positionX.x >= 70 && 
+                positionX.x <= 75 && 
+                positionY.y > 25){
                 setStairRight(false);
                 setStairLeft(false);
                 setPositionY((prev) => ({
                     y: prev.y + modifier[dir].y
                 }));
-            } else if(positionX.x >= 410 && 
-                positionX.x <= 455 && 
-                positionY.y <= 300 &&
-                positionY.y > 150
+            } else if(positionX.x >= 86 && 
+                positionX.x <= 92 && 
+                positionY.y > 75
                 ){
                 setStairRight(false);
                 setStairLeft(false);
                 setPositionY((prev) => ({
                     y: prev.y + modifier[dir].y
                 }));
-            } else if ((positionX.x===150 && positionY.y===450)||
-                (positionX.x===145 && positionY.y===450)||
-                (positionX.x===150 && positionY.y===445) ||
-                (positionX.x===145 && positionY.y===445) ||
-                (positionX.x===155 && positionY.y===445) ||
-                (positionX.x===155 && positionY.y===450) ||
-                (positionX.x===140 && positionY.y===445) ||
-                (positionX.x <= 145 && positionY.y <= 440 && positionY.y >= 305)
+            } else if ((positionX.x===26 && positionY.y===75)||
+                (positionX.x <= 25 && positionY.y > 50)
                 ){  
                     setStairRight(false);
                     setStairLeft(true);
@@ -126,10 +109,9 @@ const useWalk = (maxSteps) => {
             } 
 
         else if (dir==='down') {
-            if(positionX.x >= 510 && 
-                positionX.x <= 555 && 
-                positionY.y >= 445 && 
-                positionY.y < 595 
+            if(positionX.x >= 70 && 
+                positionX.x <= 75 && 
+                positionY.y < 50 
                 ){
                 setStairRight(false);
                 setStairLeft(false);
@@ -137,10 +119,9 @@ const useWalk = (maxSteps) => {
                     y: prev.y + modifier[dir].y
                 }));
             }
-            else if(positionX.x >= 410 && 
-                positionX.x <= 455 && 
-                positionY.y >= 145 && 
-                positionY.y < 295 
+            else if(positionX.x >= 86 && 
+                positionX.x <= 92 && 
+                positionY.y < 100 
                 ){
                 setStairRight(false);
                 setStairLeft(false);
@@ -148,13 +129,8 @@ const useWalk = (maxSteps) => {
                     y: prev.y + modifier[dir].y
                 }));
             } else if(
-                (positionX.x === 0 && positionY.y === 295)||
-                (positionX.x === 0 && positionY.y === 300)||
-                (positionX.x === 5 && positionY.y === 300)||
-                (positionX.x === 5 && positionY.y === 295)||
-                (positionX.x === -5 && positionY.y === 300)||
-                (positionX.x === -5 && positionY.y === 295)||
-                (positionX.x >= 5 && positionY.y >= 305 && positionY.y <= 440)
+                (positionX.x === 1 && positionY.y === 50)||
+                (positionX.x >= 2 && positionY.y < 75 && positionY.y >= 51)
                 ){
                 setStairRight(true);
                 setStairLeft(false);

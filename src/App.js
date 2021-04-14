@@ -114,23 +114,23 @@ export default function App(props) {
 
             //Spacebar
             else if(e.keyCode===32){
-                  if((positionY.y===150||positionY.y===145)&&(positionX.x >= 210 && positionX.x <= 270)){
+                  if((positionY.y===25)&&(positionX.x >= 35 && positionX.x <= 45)){
                         console.log('Candle 1 OUT');
                         setCandleOut1(true);
-                  } else if((positionY.y===300||positionY.y===295)&&(positionX.x >= 460 && positionX.x <= 520)){
+                  } else if((positionY.y===50)&&(positionX.x >= 78 && positionX.x <= 88)){
                         console.log('Candle 2 OUT');
                         setCandleOut2(true);
-                  } else if((positionY.y===300||positionY.y===295)&&(positionX.x >= 90 && positionX.x <= 150)){
+                  } else if((positionY.y===50)&&(positionX.x >= 15 && positionX.x <= 25)){
                         console.log('Candle 3 OUT');
                         setCandleOut3(true);
-                  } else if((positionY.y===450||positionY.y===445)&&(positionX.x >= 210 && positionX.x <= 270)){
+                  } else if((positionY.y===75)&&(positionX.x >= 35 && positionX.x <= 45)){
                         console.log('Candle 4 OUT');
                         setCandleOut4(true);
-                  } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 440 && positionX.x <= 500)){
+                  } else if((positionY.y===100)&&(positionX.x >= 73 && positionX.x <= 83)){
                         console.log('Candle 5 OUT');
                         setCandleOut5(true);
                         relight();
-                  } else if((positionY.y===600||positionY.y===595)&&(positionX.x >= 270 && positionX.x <= 330)){
+                  } else if((positionY.y===100)&&(positionX.x >= 45 && positionX.x <= 55)){
                         console.log('Candle 6 OUT');
                         setCandleOut6(true);
                   }
