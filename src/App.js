@@ -203,11 +203,11 @@ export default function App(props) {
                         />
             	</div>
                   <div className='buttons'>
-                        <Button className='up'>UP</Button><br/>
-                        <Button className='left'>LEFT</Button>
-                        <Button className='right'>RIGHT</Button>
-                        <Button className='down'>DOWN</Button>
-                        <Button className='spacebar'>SPACEBAR</Button>
+                        <Button className='up'></Button><br/>
+                        <Button className='left'></Button>
+                        <Button className='right'></Button>
+                        <Button className='down'></Button>
+                        <Button className='spacebar'></Button>
                   </div>
             </div>
    	);

@@ -17,41 +17,6 @@
 	overflow: hidden;
 }
 
-.buttons {
-	width: 66%;
-	display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	place-items: center;
-	gap: 10px 10px;
-	grid-template-areas:
-	    "up up up"
-	    "left down right"
-	    "spacebar spacebar spacebar";
-	margin-top: 10px;
-	background-color: powderblue;
-}
-.up { 
-	grid-area: up; 
-}
-
-.left { 
-	grid-area: left; 
-}
-
-.down { 
-	grid-area: down; 
-}
-
-.right { 
-	grid-area: right; 
-}
-
-.spacebar { 
-	grid-area: spacebar; 
-} 
-
-
 @media (max-width: 600px) { 
 	.game {
 		width: 320px;
