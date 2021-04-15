@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Player from './components/Player/Player';
 import Candle from './components/Candle/Candle';
+import Button from './components/Button/Button';
 import useKeyPress from './hooks/UseKeyPress/use-key-press.js';
 import useWalk from './hooks/UseWalk/use-walk.js';
 import './App.css';
@@ -138,68 +139,77 @@ export default function App(props) {
       });
 
       return (
-      	<div className='game'>
-            	{/* directions, button */}
-                  <Player   
-                        step={step} 
-                        dir={dir}
-                        positionX={positionX}
-                        positionY={positionY} 
-                  />
+            <div className='app'> 
+            	<div className='game'>
+                  	{/* directions, button */}
+                        <Player   
+                              step={step} 
+                              dir={dir}
+                              positionX={positionX}
+                              positionY={positionY} 
+                        />
 
-                  <Candle 
-                        id='candle1' 
-                        className={`candle-sprite ${toggleClass1 ? 'candle-flicker' : null} ${candleOut1 ? 'candle-out' : null}`}
-                        style= {{
-                  	top: '25%',
-                  	left: '40%'
-                  }}/>
-
-                  <Candle 
-                        id='candle2' 
-                        className={`candle-sprite ${toggleClass2 ? 'candle-flicker' : null} ${candleOut2 ? 'candle-out' : null}`}
-                        style= {{
-                        	top: '50%',
-                        	left: '82%'
-                        }}
-                  />
-
-                  <Candle 
-                        id='candle3' 
-                        className={`candle-sprite ${toggleClass3 ? 'candle-flicker' : null} ${candleOut3 ? 'candle-out' : null}`}
-                        style= {{
-                  	     top: '50%',
-                  	     left: '20%'
-                        }}
-                  />
-
-                  <Candle 
-                        id='candle4' 
-                        className={`candle-sprite ${toggleClass4 ? 'candle-flicker' : null} ${candleOut4 ? 'candle-out' : null}`}
-                        style= {{
-                        	top: '75%',
+                        <Candle 
+                              id='candle1' 
+                              className={`candle-sprite ${toggleClass1 ? 'candle-flicker' : null} ${candleOut1 ? 'candle-out' : null}`}
+                              style= {{
+                        	top: '25%',
                         	left: '40%'
-                        }}
-                  />
+                        }}/>
 
-                  <Candle 
-                        id='candle5' 
-                        className={`candle-sprite ${toggleClass5 ? 'candle-flicker' : null} ${candleOut5 ? 'candle-out' : null}`}
-                        style= {{
-                  	     top: '100%',
-                  	     left: '78%'
-                        }}
-                  />
+                        <Candle 
+                              id='candle2' 
+                              className={`candle-sprite ${toggleClass2 ? 'candle-flicker' : null} ${candleOut2 ? 'candle-out' : null}`}
+                              style= {{
+                              	top: '50%',
+                              	left: '82%'
+                              }}
+                        />
 
-                  <Candle 
-                        id='candle6' 
-                        className={`candle-sprite ${toggleClass6 ? 'candle-flicker' : null} ${candleOut6 ? 'candle-out' : null}`}
-                        style= {{
-                             top: '100%',
-                             left: '50%'
-                        }}
-                  />
-      	</div>
+                        <Candle 
+                              id='candle3' 
+                              className={`candle-sprite ${toggleClass3 ? 'candle-flicker' : null} ${candleOut3 ? 'candle-out' : null}`}
+                              style= {{
+                        	     top: '50%',
+                        	     left: '20%'
+                              }}
+                        />
+
+                        <Candle 
+                              id='candle4' 
+                              className={`candle-sprite ${toggleClass4 ? 'candle-flicker' : null} ${candleOut4 ? 'candle-out' : null}`}
+                              style= {{
+                              	top: '75%',
+                              	left: '40%'
+                              }}
+                        />
+
+                        <Candle 
+                              id='candle5' 
+                              className={`candle-sprite ${toggleClass5 ? 'candle-flicker' : null} ${candleOut5 ? 'candle-out' : null}`}
+                              style= {{
+                        	     top: '100%',
+                        	     left: '78%'
+                              }}
+                        />
+
+                        <Candle 
+                              id='candle6' 
+                              className={`candle-sprite ${toggleClass6 ? 'candle-flicker' : null} ${candleOut6 ? 'candle-out' : null}`}
+                              style= {{
+                                   top: '100%',
+                                   left: '50%'
+                              }}
+                        />
+            	</div>
+                  <div className='buttons'>
+                        <Button className='up'>UP</Button><br/>
+                        <Button className='left'>LEFT</Button>
+                        <Button className='right'>RIGHT</Button>
+                        <Button className='down'>DOWN</Button>
+                        <Button className='spacebar'>SPACEBAR</Button>
+                  </div>
+            </div>
    	);
 }
 
