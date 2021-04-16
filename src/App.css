@@ -10,11 +10,12 @@
 	background-image: url('./images/background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
-	border: 1px solid black;
+	border: 3px solid rgba(0,0,0,.75);
 	border-radius: 30px;
     position: relative;
 	margin-top: 20px;
 	overflow: hidden;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.75);
 }
 
 @media (max-width: 600px) { 
