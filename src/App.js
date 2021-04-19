@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Player from './components/Player/Player';
 import Candle from './components/Candle/Candle';
+import Header from './components/Header/Header';
 import Button from './components/Button/Button';
 import useKeyPress from './hooks/UseKeyPress/use-key-press.js';
 import useWalk from './hooks/UseWalk/use-walk.js';
@@ -202,6 +203,7 @@ export default function App(props) {
                               }}
                         />
             	</div>
+                  <Header/>
                   <div className='buttons'>
                         <Button className='up'><div className='triangle-up'></div></Button>
                         <Button className='left'><div className='triangle-left'></div></Button>

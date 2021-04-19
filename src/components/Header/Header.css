@@ -1,0 +1,27 @@
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 280px;
+	height: 180px;
+	padding: 22px;
+	border: 8px double rgba(133,104,37,1);
+	border-radius: 50%;
+	box-shadow: 3px 2px 1px rgba(0,0,0,.35);
+	text-shadow: 2px 1px rgba(0,0,0,.2);
+	font-family: 'header';	
+	font-size: 40px;
+	text-align: center;
+	background-image: linear-gradient(
+		to right,
+		#462523 0,
+	    #cb9b51 22%, 
+		#f6e27a 45%,
+		#f6f2c0 50%,
+		#f6e27a 55%,
+		#cb9b51 78%,
+		#462523 100%
+	);
+    color:transparent;
+    -webkit-background-clip:text;
+}
