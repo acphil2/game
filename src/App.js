@@ -203,14 +203,16 @@ export default function App(props) {
                               }}
                         />
             	</div>
+                  <span className='header-logo'>
                   <Header/>
-                  <div className='buttons'>
-                        <Button className='up'><div className='triangle-up'></div></Button>
-                        <Button className='left'><div className='triangle-left'></div></Button>
-                        <Button className='right'><div className='triangle-right'></div></Button>
-                        <Button className='spacebar'></Button>
-                        <Button className='down'><div className='triangle-down'></div></Button>
-                  </div>
+                        <div className='buttons'>
+                              <Button className='up'><div className='triangle-up'></div></Button>
+                              <Button className='left'><div className='triangle-left'></div></Button>
+                              <Button className='right'><div className='triangle-right'></div></Button>
+                              <Button className='spacebar'></Button>
+                              <Button className='down'><div className='triangle-down'></div></Button>
+                        </div>
+                  </span>
             </div>
    	);
 }
