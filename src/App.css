@@ -46,11 +46,13 @@
 	.app {
 		width: 350px;
 		height: 500px;
+		padding-top: 3px;
 	}
-
 	.game {
 		width: 320px;
 		height: 320px;
+		min-width: 320px;
+		min-height: 320px;
 		margin-top: 10px;
 		border-radius: 20px;
 	}

@@ -9,7 +9,7 @@
 		"up up up"
 	    "left spacebar right"
 	    "down down down";
-	margin-left: 192px;
+	margin-left: 200px;
 	padding: 4px;
 	background-color: rgba(0,0,0,.1);
 	border: 1px solid rgba(0,0,0,.1);
@@ -106,7 +106,24 @@
 }
 
 @media (max-width: 600px) { 
+	.up,
+	.right,
+	.left,
+	.down {
+		width: 40px;
+		height: 40px;
+		padding-top: 3px;
+	}
+
+	.spacebar {
+		width: 40px;
+		height: 40px;
+		margin: 5px;
+	}
+
 	.buttons {
-		width: 55%;
+		width: 140px;
+		height: 140px;
+		margin-left: 160px;
 	}
 }

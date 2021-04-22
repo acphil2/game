@@ -5,7 +5,7 @@
 	height: 90px;
 	width: 130px;
 	padding: 6px;
-	margin-left: 36px;
+	margin-left: 46px;
 	border-top: 5px double rgba(189, 151, 64,.9);
 	border-right: 5px double rgba(171, 136, 55,1);
 	border-bottom: 5px double rgba(171, 136, 55,.95);
@@ -27,4 +27,11 @@
 		#462523 100%);
     color:transparent;
     -webkit-background-clip:text;
+}
+
+@media (max-width: 600px) { 
+	.header {
+		margin-right: 140px; 
+		margin-left: 28px;
+	}
 }
