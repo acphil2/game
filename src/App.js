@@ -105,6 +105,17 @@ export default function App(props) {
             }
       }, [candleOut6]);
 
+       useEffect(() => {
+            if(candleOut1===true
+            && candleOut2===true
+            && candleOut3===true
+            && candleOut4===true
+            && candleOut5===true
+            && candleOut6===true){
+                  alert('GAME OVER');
+            }
+      });
+
       useKeyPress((e) => {
             //Movement
             if(e.key==='ArrowRight' || 

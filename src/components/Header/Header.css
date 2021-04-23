@@ -5,7 +5,7 @@
 	height: 120px;
 	width: 154px;
 	padding: 6px;
-	margin-top: 54px;
+	margin-top: 66px;
 	margin-right: 28px;
 	border-top: 5px double rgba(189, 151, 64,.9);
 	border-right: 5px double rgba(171, 136, 55,1);
@@ -36,7 +36,5 @@
 		height: 80px;
 		width: 120px;
 		margin: 0px 20px 0px 20px;
-
-
 	}
 }

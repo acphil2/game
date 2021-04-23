@@ -9,12 +9,17 @@
 	align-items: center;
 	width: 660px;
 	height: 850px;
-	border: 2px solid rgba(255,255,255,.05);
-	border-radius: 35px;
+	border-top: 4px solid rgba(255,255,255,.04);
+	border-right: 3px solid rgba(255,255,255,.02);
+	border-bottom: 2px solid rgba(255,255,255,.02);
+	border-left: 3px solid rgba(255,255,255,.04);
+	border-radius: 2em;
 	margin-top: 10px;
 	padding-top: 28px;
 	background: rgb(46,45,45);
 	background: linear-gradient(356deg, rgba(46,45,45,1) 9%, rgba(88,87,87,1) 63%, rgba(83,82,82,1) 77%, rgba(45,45,45,1) 100%);
+	box-shadow: 5px 10px 5px black;
+	animation: fade 0.5s linear;
 }
 
 .game {
@@ -40,6 +45,16 @@
 	justify-content: flex-end;
 	align-items: center;
 }
+
+@keyframes fade {
+	0% {
+		opacity: 0%; 
+	}
+  	100% { 
+  		opacity: 100%;
+  	}
+}
+
 
 
 @media (max-width: 600px) { 
