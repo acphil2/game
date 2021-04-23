@@ -77,16 +77,16 @@ const useWalk = (maxSteps) => {
             }            
         }
         else if (dir==='up') {
-            if(positionX.x >= 70 && 
-                positionX.x <= 75 && 
+            if(positionX.x >= 69 && 
+                positionX.x <= 76 && 
                 positionY.y > 25){
                 setStairRight(false);
                 setStairLeft(false);
                 setPositionY((prev) => ({
                     y: prev.y + modifier[dir].y
                 }));
-            } else if(positionX.x >= 86 && 
-                positionX.x <= 92 && 
+            } else if(positionX.x >= 85 && 
+                positionX.x <= 93 && 
                 positionY.y > 75
                 ){
                 setStairRight(false);
@@ -109,8 +109,8 @@ const useWalk = (maxSteps) => {
             } 
 
         else if (dir==='down') {
-            if(positionX.x >= 70 && 
-                positionX.x <= 75 && 
+            if(positionX.x >= 69 && 
+                positionX.x <= 76 && 
                 positionY.y < 50 
                 ){
                 setStairRight(false);
@@ -119,8 +119,8 @@ const useWalk = (maxSteps) => {
                     y: prev.y + modifier[dir].y
                 }));
             }
-            else if(positionX.x >= 86 && 
-                positionX.x <= 92 && 
+            else if(positionX.x >= 85 && 
+                positionX.x <= 93 && 
                 positionY.y < 100 
                 ){
                 setStairRight(false);

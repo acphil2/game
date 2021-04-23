@@ -116,23 +116,23 @@ export default function App(props) {
 
             //Spacebar
             else if(e.keyCode===32){
-                  if((positionY.y===25)&&(positionX.x >= 35 && positionX.x <= 45)){
+                  if((positionY.y===25)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 1 OUT');
                         setCandleOut1(true);
-                  } else if((positionY.y===50)&&(positionX.x >= 78 && positionX.x <= 88)){
+                  } else if((positionY.y===50)&&(positionX.x >= 76 && positionX.x <= 90)){
                         console.log('Candle 2 OUT');
                         setCandleOut2(true);
-                  } else if((positionY.y===50)&&(positionX.x >= 15 && positionX.x <= 25)){
+                  } else if((positionY.y===50)&&(positionX.x >= 14 && positionX.x <= 27)){
                         console.log('Candle 3 OUT');
                         setCandleOut3(true);
-                  } else if((positionY.y===75)&&(positionX.x >= 35 && positionX.x <= 45)){
+                  } else if((positionY.y===75)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 4 OUT');
                         setCandleOut4(true);
-                  } else if((positionY.y===100)&&(positionX.x >= 73 && positionX.x <= 83)){
+                  } else if((positionY.y===100)&&(positionX.x >= 72 && positionX.x <= 84)){
                         console.log('Candle 5 OUT');
                         setCandleOut5(true);
                         relight();
-                  } else if((positionY.y===100)&&(positionX.x >= 45 && positionX.x <= 55)){
+                  } else if((positionY.y===100)&&(positionX.x >= 44 && positionX.x <= 56)){
                         console.log('Candle 6 OUT');
                         setCandleOut6(true);
                   }
