@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Start from './components/Start/Start';
 import Player from './components/Player/Player';
 import Candle from './components/Candle/Candle';
 import Header from './components/Header/Header';
@@ -153,7 +154,7 @@ export default function App(props) {
       return (
             <div className='app'> 
             	<div className='game'>
-                  	{/* directions, button */}
+                        <Start/>
                         <Player   
                               step={step} 
                               dir={dir}
@@ -222,7 +223,7 @@ export default function App(props) {
                               <Button className='spacebar'></Button>
                               <Button className='down'><div className='triangle-down'></div></Button>
                         </div>
-                        <Header/>
+                        <Header className='gold-right'>Holly Haunted</Header>
                   </span>
             </div>
    	);

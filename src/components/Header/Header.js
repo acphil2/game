@@ -4,8 +4,8 @@ import './Header.css';
 const Header = ( props ) => {
 
     return(
-    	<div className='header'>
-    	Holly Haunted
+    	<div className={props.className}>
+    	{props.children}
         </div>
     );
 }

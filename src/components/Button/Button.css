@@ -10,7 +10,6 @@
 	    "left spacebar right"
 	    "down down down";
 	padding: 4px;
-	margin-right: 35px;
 	background-color: rgba(0,0,0,.08);
 	border: 1px solid rgba(0,0,0,.1);
 	border-radius: 10px;
@@ -76,6 +75,7 @@
     border-right: 8px solid transparent;
     border-bottom: 16px solid black;
     opacity: 50%;
+
 }
 
 .triangle-down {
@@ -110,20 +110,20 @@
 	.right,
 	.left,
 	.down {
-		width: 40px;
-		height: 40px;
-		padding-top: 3px;
+		width: 32px;
+		height: 32px;
+		padding: 2px;
 	}
 
 	.spacebar {
-		width: 40px;
-		height: 40px;
-		margin: 5px;
+		width: 32px;
+		height: 32px;
+		margin: 4px;
 	}
 
 	.buttons {
-		width: 140px;
-		height: 140px;
+		width: 120px;
+		height: 120px;
 		margin: 0px;
 
 	}
