@@ -9,6 +9,10 @@ import useWalk from './hooks/UseWalk/use-walk.js';
 import './App.css';
 
 export default function App(props) {
+
+      //Start Screen 
+      const [start, setStart] = useState(true);   
+
       //Character Movement and Position
       const { dir, step, walk, positionX, positionY } = useWalk(2);
 
@@ -106,7 +110,7 @@ export default function App(props) {
             }
       }, [candleOut6]);
 
-       useEffect(() => {
+      useEffect(() => {
             if(candleOut1===true
             && candleOut2===true
             && candleOut3===true
