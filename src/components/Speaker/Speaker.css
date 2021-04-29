@@ -6,12 +6,12 @@
 	height: 104px;
     padding: 0px 12px 0px 12px;
     margin: 0px 25px 0px 25px;
-    opacity: .35;
+    opacity: .3;
     background: rgb(79,79,79);
     background: radial-gradient(circle, rgba(79,79,79,.45) 0%, rgba(68,68,68,.25) 48%, rgba(85,85,85,.45) 100%);
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.05);
-    box-shadow: 2px 2px 1px rgba(0,0,0,.2);
+    border-radius: 12%;
+    border: 2px solid rgba(255,255,255,.04);
+    box-shadow: 2px 2px 1px rgba(0,0,0,.35);
 }
 
 div.speaker-line1 {
@@ -59,6 +59,28 @@ div.speaker-line:before {
     z-index:-1;
 }
 
+div.speaker-line2 {
+    width: 8px;
+    height: 72px;
+    position:relative;
+    box-sizing:border-box;
+    z-index: 6;
+}
+
+div.speaker-line2:before { 
+    content:"";
+    position:absolute;
+    background: rgb(31,31,31);
+    background: radial-gradient(circle, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 100%);
+    border-radius: 7px;
+    transform: skew(-18deg);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+}
+
 @media (max-width: 600px) { 
     .speaker {
         width: 74px;
@@ -73,5 +95,9 @@ div.speaker-line:before {
     div.speaker-line {
         width: 6px;
         height: 48px;
+    }
+    div.speaker-line2 {
+        width: 6px;
+        height: 55px;
     }
 }

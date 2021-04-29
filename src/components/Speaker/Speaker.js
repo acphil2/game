@@ -7,7 +7,7 @@ const Speaker = ( props ) => {
         <div className='speaker'>
         	<div className='speaker-line1'></div>
         	<div className='speaker-line'></div>
-        	<div className='speaker-line'></div>
+        	<div className='speaker-line2'></div>
         	<div className='speaker-line'></div>
         	<div className='speaker-line1'></div>
         </div>

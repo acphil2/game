@@ -9,10 +9,10 @@
 		"up up up"
 	    "left spacebar right"
 	    "down down down";
-	padding: 4px;
+	padding: 10px;
 	background-color: rgba(0,0,0,.05);
 	border: 1px solid rgba(0,0,0,.1);
-	border-radius: 10px;
+	border-radius: 50%;
 	box-shadow: 2px 2px 3px rgba(255,255,255,.06);
 }
 
@@ -62,7 +62,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 10px;
-	border: 1px solid rgba(255,255,255,.04);
+	border: 2px solid rgba(255,255,255,.02);
 	background: rgb(66,67,68);
 	background: linear-gradient(223deg, rgba(66,67,68,0.9766281512605042) 15%, rgba(46,47,48,1) 100%);
 	box-shadow: 2px 3px 1px rgba(0,0,0,.45);
@@ -125,7 +125,7 @@
 		width: 120px;
 		height: 120px;
 		margin: 0px;
-
+		padding: 2px;
 	}
 
 	.triangle-up {
