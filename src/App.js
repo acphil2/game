@@ -4,6 +4,7 @@ import Player from './components/Player/Player';
 import Candle from './components/Candle/Candle';
 import Header from './components/Header/Header';
 import Button from './components/Button/Button';
+import Speaker from './components/Speaker/Speaker';
 import useKeyPress from './hooks/UseKeyPress/use-key-press.js';
 import useWalk from './hooks/UseWalk/use-walk.js';
 import './App.css';
@@ -220,6 +221,7 @@ export default function App(props) {
                         />
             	</div>
                   <span className='header-logo'>
+                        <Speaker/>
                         <div className='buttons'>
                               <Button className='up'><div className='triangle-up'></div></Button>
                               <Button className='left'><div className='triangle-left'></div></Button>
