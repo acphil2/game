@@ -71,38 +71,38 @@
 .triangle-up {
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid black;
-    opacity: 50%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid black;
+    opacity: 30%;
 
 }
 
 .triangle-down {
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 16px solid black;
-    opacity: 50%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid black;
+    opacity: 30%;
 }
 
 .triangle-left {
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-right: 16px solid black;
-    border-bottom: 8px solid transparent;
-    opacity: 50%;
+    border-top: 10px solid transparent;
+    border-right: 20px solid black;
+    border-bottom: 10px solid transparent;
+    opacity: 30%;
 }
 
 .triangle-right {
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-left: 16px solid black;
-    border-bottom: 8px solid transparent; 
-    opacity: 50%;   
+    border-top: 10px solid transparent;
+    border-left: 20px solid black;
+    border-bottom: 10px solid transparent; 
+    opacity: 30%;   
 }
 
 @media (max-width: 600px) { 
@@ -126,5 +126,29 @@
 		height: 120px;
 		margin: 0px;
 
+	}
+
+	.triangle-up {
+	    border-left: 7px solid transparent;
+	    border-right: 7px solid transparent;
+	    border-bottom: 14px solid black;
+	}
+
+	.triangle-down {	
+	    border-left: 7px solid transparent;
+	    border-right: 7px solid transparent;
+	    border-top: 14px solid black;
+	}
+
+	.triangle-left {
+	    border-top: 7px solid transparent;
+	    border-right: 14px solid black;
+	    border-bottom: 7px solid transparent;
+	}
+
+	.triangle-right {
+	    border-top: 7px solid transparent;
+	    border-left: 14px solid black;
+	    border-bottom: 7px solid transparent; 
 	}
 }
