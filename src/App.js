@@ -11,9 +11,6 @@ import './App.css';
 
 export default function App(props) {
 
-      //Start Screen 
-      const [start, setStart] = useState(true);   
-
       //Character Movement and Position
       const { dir, step, walk, positionX, positionY } = useWalk(2);
 
@@ -39,17 +36,80 @@ export default function App(props) {
       //Trick Candles Function 
       const relight = () => {
             if(canRelight===true){
-                  if(candleOut1===true 
+                  //#6
+                  if(
+                  candleOut1===true 
                   && candleOut2===true 
                   && candleOut3===true 
-                  && candleOut4===true){
+                  && candleOut4===true
+                  && candleOut5===true){
                         setCandleOut1(false);
                         setCandleOut2(false);
                         setCandleOut4(false);
                         setCanRelight(false);
                   }
+                  //#5
+                  else if(
+                  candleOut1===true 
+                  && candleOut2===true 
+                  && candleOut3===true 
+                  && candleOut4===true
+                  && candleOut6===true){
+                        setCandleOut6(false);
+                        setCandleOut2(false);
+                        setCandleOut4(false);
+                        setCanRelight(false);
+                  }
+                  //#4
+                  else if(
+                  candleOut1===true 
+                  && candleOut2===true 
+                  && candleOut3===true 
+                  && candleOut5===true
+                  && candleOut6===true){
+                        setCandleOut1(false);
+                        setCandleOut2(false);
+                        setCandleOut6(false);
+                        setCanRelight(false);
+                  }
+                  //#3
+                  else if(
+                  candleOut1===true 
+                  && candleOut2===true 
+                  && candleOut4===true 
+                  && candleOut5===true
+                  && candleOut6===true){
+                        setCandleOut1(false);
+                        setCandleOut2(false);
+                        setCandleOut4(false);
+                        setCanRelight(false);
+                  }
+                  //#2
+                  else if(
+                  candleOut1===true 
+                  && candleOut3===true 
+                  && candleOut4===true 
+                  && candleOut5===true
+                  && candleOut6===true){
+                        setCandleOut1(false);
+                        setCandleOut5(false);
+                        setCandleOut4(false);
+                        setCanRelight(false);
+                  }
+                  //#1
+                  else if(
+                  candleOut2===true 
+                  && candleOut3===true 
+                  && candleOut4===true 
+                  && candleOut5===true
+                  && candleOut6===true){
+                        setCandleOut2(false);
+                        setCandleOut4(false);
+                        setCandleOut6(false);
+                        setCanRelight(false);
+                  }
             }
-      }  
+      } 
 
       //Candle1
       useEffect(() => {
@@ -111,17 +171,20 @@ export default function App(props) {
             }
       }, [candleOut6]);
 
+      //GAME OVER
       useEffect(() => {
             if(candleOut1===true
             && candleOut2===true
             && candleOut3===true
             && candleOut4===true
             && candleOut5===true
-            && candleOut6===true){
-                  alert('GAME OVER');
+            && candleOut6===true
+            && canRelight===false){
+                  console.log('game over');
             }
-      });
+      }, [candleOut1, candleOut2, candleOut3, candleOut4, candleOut5, candleOut6, canRelight]);
 
+      //ARROW KEYS AND SPACEBAR 
       useKeyPress((e) => {
             //Movement
             if(e.key==='ArrowRight' || 
@@ -136,15 +199,19 @@ export default function App(props) {
                   if((positionY.y===25)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 1 OUT');
                         setCandleOut1(true);
+                        relight();
                   } else if((positionY.y===50)&&(positionX.x >= 76 && positionX.x <= 90)){
                         console.log('Candle 2 OUT');
                         setCandleOut2(true);
+                        relight();
                   } else if((positionY.y===50)&&(positionX.x >= 14 && positionX.x <= 27)){
                         console.log('Candle 3 OUT');
                         setCandleOut3(true);
+                        relight();
                   } else if((positionY.y===75)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 4 OUT');
                         setCandleOut4(true);
+                        relight();
                   } else if((positionY.y===100)&&(positionX.x >= 72 && positionX.x <= 84)){
                         console.log('Candle 5 OUT');
                         setCandleOut5(true);
@@ -152,6 +219,7 @@ export default function App(props) {
                   } else if((positionY.y===100)&&(positionX.x >= 44 && positionX.x <= 56)){
                         console.log('Candle 6 OUT');
                         setCandleOut6(true);
+                        relight();
                   }
             }  
       });

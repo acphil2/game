@@ -11,7 +11,7 @@
 	align-items: center;
 	font-family: 'game';
 	padding: 20px 0 20px 0;
-	animation: loading 5s forwards;
+	animation: loading 6s forwards;
 }
 
 .title {

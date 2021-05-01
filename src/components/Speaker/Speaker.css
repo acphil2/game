@@ -6,12 +6,12 @@
 	height: 104px;
     padding: 0px 12px 0px 12px;
     margin: 0px 25px 0px 25px;
-    opacity: .3;
+    opacity: .45;
     background: rgb(79,79,79);
-    background: radial-gradient(circle, rgba(79,79,79,.45) 0%, rgba(68,68,68,.25) 48%, rgba(85,85,85,.45) 100%);
+    background: radial-gradient(circle, rgba(79,79,79,.35) 0%, rgba(68,68,68,.35) 48%, rgba(85,85,85,.35) 100%);
     border-radius: 12%;
-    border: 2px solid rgba(255,255,255,.04);
-    box-shadow: 2px 2px 1px rgba(0,0,0,.35);
+    border: 2px solid rgba(255,255,255,.02);
+    box-shadow: 2px 2px 1px rgba(0,0,0,.05);
 }
 
 div.speaker-line1 {
