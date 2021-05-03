@@ -196,33 +196,57 @@ export default function App(props) {
 
             //Spacebar
             else if(e.keyCode===32){
-                  if((positionY.y===25)&&(positionX.x >= 34 && positionX.x <= 46)){
+                  spacebarFunction();   
+            }  
+      });
+
+      const spacebarFunction = () => {
+            if((positionY.y===25)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 1 OUT');
                         setCandleOut1(true);
                         relight();
-                  } else if((positionY.y===50)&&(positionX.x >= 76 && positionX.x <= 90)){
+            } else if((positionY.y===50)&&(positionX.x >= 76 && positionX.x <= 90)){
                         console.log('Candle 2 OUT');
                         setCandleOut2(true);
                         relight();
-                  } else if((positionY.y===50)&&(positionX.x >= 14 && positionX.x <= 27)){
+            } else if((positionY.y===50)&&(positionX.x >= 14 && positionX.x <= 27)){
                         console.log('Candle 3 OUT');
                         setCandleOut3(true);
                         relight();
-                  } else if((positionY.y===75)&&(positionX.x >= 34 && positionX.x <= 46)){
+            } else if((positionY.y===75)&&(positionX.x >= 34 && positionX.x <= 46)){
                         console.log('Candle 4 OUT');
                         setCandleOut4(true);
                         relight();
-                  } else if((positionY.y===100)&&(positionX.x >= 72 && positionX.x <= 84)){
+            } else if((positionY.y===100)&&(positionX.x >= 72 && positionX.x <= 84)){
                         console.log('Candle 5 OUT');
                         setCandleOut5(true);
                         relight();
-                  } else if((positionY.y===100)&&(positionX.x >= 44 && positionX.x <= 56)){
+            } else if((positionY.y===100)&&(positionX.x >= 44 && positionX.x <= 56)){
                         console.log('Candle 6 OUT');
                         setCandleOut6(true);
                         relight();
-                  }
-            }  
-      });
+            }
+      }
+
+      const handleClickRight = (e) => {
+            walk('right');
+      }
+
+      const handleClickLeft = (e) => {
+            walk('left');
+      }
+
+      const handleClickUp = (e) => {
+            walk('up');
+      }
+
+      const handleClickDown = (e) => {
+            walk('down');
+      }
+
+      const handleClickSpacebar = (e) => {
+            spacebarFunction();
+      }
 
       return (
             <div className='app'> 
@@ -291,11 +315,11 @@ export default function App(props) {
                   <span className='header-logo'>
                         <Speaker/>
                         <div className='buttons'>
-                              <Button className='up'><div className='triangle-up'></div></Button>
-                              <Button className='left'><div className='triangle-left'></div></Button>
-                              <Button className='right'><div className='triangle-right'></div></Button>
-                              <Button className='spacebar'></Button>
-                              <Button className='down'><div className='triangle-down'></div></Button>
+                              <Button className='up' onClick={handleClickUp}><div className='triangle-up'></div></Button>
+                              <Button className='left' onClick={handleClickLeft}><div className='triangle-left'></div></Button>
+                              <Button className='right' onClick={handleClickRight}><div className='triangle-right'></div></Button>
+                              <Button className='spacebar' onClick={handleClickSpacebar}></Button>
+                              <Button className='down' onClick={handleClickDown}><div className='triangle-down'></div></Button>
                         </div>
                         <Header className='gold-right'>Holly Haunted</Header>
                   </span>
