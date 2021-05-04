@@ -34,6 +34,9 @@ export default function App(props) {
       //Relight Trick Candle State (so it won't run more than once)
       const [canRelight, setCanRelight] = useState(true);
 
+      //Game Over State
+      const [gameOverState, setGameOverState] = useState(false);
+
       //Trick Candles Function 
       const relight = () => {
             if(canRelight===true){
@@ -246,86 +249,107 @@ export default function App(props) {
             && candleOut6===true
             && canRelight===false){
                   console.log('game over');
+                  setGameOverState(true);
             }
       }, [candleOut1, candleOut2, candleOut3, candleOut4, candleOut5, candleOut6, canRelight]);
 
-      return (
-            <div className='app'> 
-            	<div className='game'>
-                        <Start/>
-                        <Player
-                              step={step} 
-                              dir={dir}
-                              positionX={positionX}
-                              positionY={positionY}
-                        />
+      if(gameOverState===false){
+            return (
+                  <div className='app'> 
+                  	<div className='game'>
+                              <Start/>
+                              <Player
+                                    step={step} 
+                                    dir={dir}
+                                    positionX={positionX}
+                                    positionY={positionY}
+                              />
 
-                        <Candle 
-                              id='candle1' 
-                              className={`candle-sprite ${toggleClass1 ? 'candle-flicker' : null} ${candleOut1 ? 'candle-out' : null}`}
-                              style= {{
-                        	top: '25%',
-                        	left: '40%'
-                        }}/>
-
-                        <Candle 
-                              id='candle2' 
-                              className={`candle-sprite ${toggleClass2 ? 'candle-flicker' : null} ${candleOut2 ? 'candle-out' : null}`}
-                              style= {{
-                              	top: '50%',
-                              	left: '82%'
-                              }}
-                        />
-
-                        <Candle 
-                              id='candle3' 
-                              className={`candle-sprite ${toggleClass3 ? 'candle-flicker' : null} ${candleOut3 ? 'candle-out' : null}`}
-                              style= {{
-                        	     top: '50%',
-                        	     left: '20%'
-                              }}
-                        />
-
-                        <Candle 
-                              id='candle4' 
-                              className={`candle-sprite ${toggleClass4 ? 'candle-flicker' : null} ${candleOut4 ? 'candle-out' : null}`}
-                              style= {{
-                              	top: '75%',
+                              <Candle 
+                                    id='candle1' 
+                                    className={`candle-sprite ${toggleClass1 ? 'candle-flicker' : null} ${candleOut1 ? 'candle-out' : null}`}
+                                    style= {{
+                              	top: '25%',
                               	left: '40%'
-                              }}
-                        />
+                              }}/>
 
-                        <Candle 
-                              id='candle5' 
-                              className={`candle-sprite ${toggleClass5 ? 'candle-flicker' : null} ${candleOut5 ? 'candle-out' : null}`}
-                              style= {{
-                        	     top: '100%',
-                        	     left: '78%'
-                              }}
-                        />
+                              <Candle 
+                                    id='candle2' 
+                                    className={`candle-sprite ${toggleClass2 ? 'candle-flicker' : null} ${candleOut2 ? 'candle-out' : null}`}
+                                    style= {{
+                                    	top: '50%',
+                                    	left: '82%'
+                                    }}
+                              />
 
-                        <Candle 
-                              id='candle6' 
-                              className={`candle-sprite ${toggleClass6 ? 'candle-flicker' : null} ${candleOut6 ? 'candle-out' : null}`}
-                              style= {{
-                                   top: '100%',
-                                   left: '50%'
-                              }}
-                        />
-                        <GameOver/>
-            	</div>
-                  <span className='header-logo'>
-                        <Speaker/>
-                        <div className='buttons'>
-                              <Button className='up' onClick={handleClickUp}><div className='triangle-up'></div></Button>
-                              <Button className='left' onClick={handleClickLeft}><div className='triangle-left'></div></Button>
-                              <Button className='right' onClick={handleClickRight}><div className='triangle-right'></div></Button>
-                              <Button className='spacebar' onClick={handleClickSpacebar}></Button>
-                              <Button className='down' onClick={handleClickDown}><div className='triangle-down'></div></Button>
+                              <Candle 
+                                    id='candle3' 
+                                    className={`candle-sprite ${toggleClass3 ? 'candle-flicker' : null} ${candleOut3 ? 'candle-out' : null}`}
+                                    style= {{
+                              	     top: '50%',
+                              	     left: '20%'
+                                    }}
+                              />
+
+                              <Candle 
+                                    id='candle4' 
+                                    className={`candle-sprite ${toggleClass4 ? 'candle-flicker' : null} ${candleOut4 ? 'candle-out' : null}`}
+                                    style= {{
+                                    	top: '75%',
+                                    	left: '40%'
+                                    }}
+                              />
+
+                              <Candle 
+                                    id='candle5' 
+                                    className={`candle-sprite ${toggleClass5 ? 'candle-flicker' : null} ${candleOut5 ? 'candle-out' : null}`}
+                                    style= {{
+                              	     top: '100%',
+                              	     left: '78%'
+                                    }}
+                              />
+
+                              <Candle 
+                                    id='candle6' 
+                                    className={`candle-sprite ${toggleClass6 ? 'candle-flicker' : null} ${candleOut6 ? 'candle-out' : null}`}
+                                    style= {{
+                                         top: '100%',
+                                         left: '50%'
+                                    }}
+                              />
+                  	</div>
+                        <span className='header-logo'>
+                              <Speaker/>
+                              <div className='buttons'>
+                                    <Button className='up' onClick={handleClickUp}><div className='triangle-up'></div></Button>
+                                    <Button className='left' onClick={handleClickLeft}><div className='triangle-left'></div></Button>
+                                    <Button className='right' onClick={handleClickRight}><div className='triangle-right'></div></Button>
+                                    <Button className='spacebar' onClick={handleClickSpacebar}></Button>
+                                    <Button className='down' onClick={handleClickDown}><div className='triangle-down'></div></Button>
+                              </div>
+                              <Header className='gold-right'>Holly Haunted</Header>
+                        </span>
+                  </div>
+         	);
+      } else if(gameOverState===true){
+            return (
+                  <div className='app'> 
+                        <div className='game'>
+                              <GameOver/>
                         </div>
-                        <Header className='gold-right'>Holly Haunted</Header>
-                  </span>
-            </div>
-   	);
+                        <span className='header-logo'>
+                              <Speaker/>
+                              <div className='buttons'>
+                                    <Button className='up' onClick={handleClickUp}><div className='triangle-up'></div></Button>
+                                    <Button className='left' onClick={handleClickLeft}><div className='triangle-left'></div></Button>
+                                    <Button className='right' onClick={handleClickRight}><div className='triangle-right'></div></Button>
+                                    <Button className='spacebar' onClick={handleClickSpacebar}></Button>
+                                    <Button className='down' onClick={handleClickDown}><div className='triangle-down'></div></Button>
+                              </div>
+                              <Header className='gold-right'>Holly Haunted</Header>
+                        </span>
+                  </div>
+            );      
+      }
 }
 
