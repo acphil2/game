@@ -1,7 +1,7 @@
 import React from 'react';
 import Actor from '../Actor/Actor';
 
-const Player = ( { dir, step, walk, positionX, positionY } ) => {
+const Player = ({ dir, step, walk, positionX, positionY } ) => {
     const data = {
         h: '50',
         w: '25'
