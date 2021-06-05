@@ -24,6 +24,7 @@
 	background: rgb(46,45,45);
 	background: linear-gradient(356deg, rgba(46,45,45,1) 9%, rgba(88,87,87,1) 63%, rgba(83,82,82,1) 77%, rgba(45,45,45,1) 100%);
 	box-shadow: 5px 10px 5px black;
+	overflow: scroll;
 }
 
 .game {
@@ -37,7 +38,7 @@
 	border: 1px solid rgba(0,0,0,1);
 	border-radius: 5px;
     position: relative;
-	overflow: hidden;
+    overflow: hidden;
 	box-shadow: 4px 2px 3px rgba(255,255,255,.08);
 }
 
@@ -75,5 +76,11 @@
 @media (max-width: 350px) { 
 	.app {
 		width: 324px;
+		padding-top: 0px;
+		border-top: 1px solid rgba(255,255,255,.04);
+		border-right: 1px solid rgba(255,255,255,.02);
+		border-bottom: 1px solid rgba(255,255,255,.02);
+		border-left: 1px solid rgba(255,255,255,.04);
+		border-radius: 18px;
 	}
 }
