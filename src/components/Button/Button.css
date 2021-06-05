@@ -105,6 +105,7 @@
     opacity: 30%;   
 }
 
+div,
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
