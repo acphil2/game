@@ -13,7 +13,7 @@ const Actor = ({
     
     return (
         <Sprite 
-            image={'Sprites/spritesheet.png'}
+            image={process.env.PUBLIC_URL + '/Sprites/spritesheet.png'}
             positionX={positionX}
             positionY={positionY}
             data={{
