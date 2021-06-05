@@ -24,6 +24,7 @@
 	background: rgb(46,45,45);
 	background: linear-gradient(356deg, rgba(46,45,45,1) 9%, rgba(88,87,87,1) 63%, rgba(83,82,82,1) 77%, rgba(45,45,45,1) 100%);
 	box-shadow: 5px 10px 5px black;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .game {
