@@ -339,12 +339,12 @@ export default function App(props) {
                         </div>
                         <span className='header-logo'>
                               <Speaker/>
-                              <div className='buttons'>
-                                    <Button className='up noselect' onClick={handleClickUp}><div className='triangle-up'></div></Button>
-                                    <Button className='left noselect' onClick={handleClickLeft}><div className='triangle-left'></div></Button>
-                                    <Button className='right noselect' onClick={handleClickRight}><div className='triangle-right'></div></Button>
+                              <div className='buttons noselect'>
+                                    <Button className='up noselect' onClick={handleClickUp}><div className='triangle-up noselect'></div></Button>
+                                    <Button className='left noselect' onClick={handleClickLeft}><div className='triangle-left noselect'></div></Button>
+                                    <Button className='right noselect' onClick={handleClickRight}><div className='triangle-right noselect'></div></Button>
                                     <Button className='spacebar noselect' onClick={handleClickSpacebar}></Button>
-                                    <Button className='down noselect' onClick={handleClickDown}><div className='triangle-down'></div></Button>
+                                    <Button className='down noselect' onClick={handleClickDown}><div className='triangle-down noselect'></div></Button>
                               </div>
                               <Header className='gold-right'>Holly Haunted</Header>
                         </span>
