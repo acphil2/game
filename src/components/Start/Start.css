@@ -12,6 +12,7 @@
 	font-family: 'game';
 	padding: 20px 0 20px 0;
 	animation: loading 7s forwards;
+	border-radius: 5px;
 }
 
 .title {
@@ -62,6 +63,10 @@
 }
 
 @media (max-width: 600px) { 
+	.start {
+		border-radius: 20px;
+	}
+
 	.title {
 		font-size: 32px;
 	}
