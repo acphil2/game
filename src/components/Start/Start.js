@@ -6,7 +6,7 @@ const Start = ( props ) => {
         <div className='start'>
         	<div className='title'>Holly<br/><span className='title-size'>Haunted</span></div>
         	<div className='start-btn'>LOADING...</div>	
-        	<div className='instructions'> Put out all of the candles! <div className='outline'></div><br/> <br/> Use spacebar and keyboard arrows or the buttons below.</div>
+        	<div className='instructions'> Use spacebar to put candles out before they relight! <div className='outline'></div><br/> <br/> Use keyboard arrows to move around.</div>
         </div>
     );
 }
