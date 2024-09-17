@@ -7,17 +7,10 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
-<<<<<<< HEAD
     "gh-pages": "^6.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "^5.0.1",
-=======
-    "gh-pages": "^5.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "5.0.1",
->>>>>>> b8e25bca2e355ffe194a15d2d529da9dd8bbbe0e
     "web-vitals": "^0.2.4"
   },
   "scripts": {
